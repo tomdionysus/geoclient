@@ -10,7 +10,8 @@ class App.MainController extends Mozart.Controller
     @set 'currentSubdivision', false
     @bind 'change:currentCountry', @loadSubdivisions
 
-    @host = "http://localhost:9292"
+    #@host = "http://localhost:9292"
+    @host = "http://service-geo.herokuapp.com"
 
     @http = Mozart.HTTP.create()
 
