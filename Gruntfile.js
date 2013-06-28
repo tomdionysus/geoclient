@@ -287,4 +287,5 @@ module.exports = function (grunt) {
      */
     grunt.registerTask('run', ['build', 'testServer', 'watch']);
     grunt.registerTask('test', ['build', 'jasmine']);
+    grunt.registerTask('heroku', ['build']);
 };
