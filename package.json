@@ -19,6 +19,7 @@
     "express": "3.0.x",
     "connect-livereload": "0.2.0",
     "grunt": "0.4.x",
+    "grunt-cli": "0.1.x",
     "grunt-contrib-coffee": "0.4.x",
     "grunt-coffeelint": "0.0.6",
     "grunt-contrib-handlebars": "0.5.9",
