@@ -1,0 +1,44 @@
+
+<h1>Geo Client</h1>
+<p>Basic Demo Client for <a href='http://github.com/bigcommerce/geo-service'>GeoService</a></p>
+
+<div style='float:left; max-width:250px;'>
+	<h2>Countries</h2>
+	Filter: {{view "App.TextControl" valueNotifyBinding="filter"}}
+	{{#collection collectionBinding='App.mainController.countries' filterAttribute="name" filterTextObserveBinding="filter"}}
+		<a {{action "selectCountry" target="App.mainController" country=content}}>{{content.name}}</a>
+	{{/collection}}
+</div>
+
+<div style="float:left; white-space: nowrap;">
+{{#view displayObserveBinding="App.mainController.currentCountry" styleHtml="margin:10px;"}}
+	<h2>Details</h2>
+
+	<table style="align:left;">
+		<tr><td><strong>Name:<strong></th><td>{{display.name}}</td></tr>
+		<tr><td><strong>ISO Alpha 2 Code:<strong></th><td>{{display.code_alpha_2}}</td></tr>
+		<tr><td><strong>ISO Alpha 3 Code:<strong></th><td>{{display.code_alpha_3}}</td></tr>
+		<tr><td><strong>ISO Numeric Code:<strong></th><td>{{display.code_numeric}}</td></tr>
+		<tr><td><strong>ISO 4166 Currency Code:<strong></th><td>{{display.default_currency_code}}</td></tr>
+		<tr><td><strong>ITEF Language Codes:<strong></th><td>{{display.default_language_code}}</td></tr>
+	</table>
+{{/view}}
+
+{{#view displayObserveBinding="App.mainController.currentSubdivisions" styleHtml="margin:10px;"}}
+	<h2>Subdivisions</h2>
+	{{#collection collectionObserveBinding='App.mainController.currentSubdivisions'}}
+		<a {{action "selectSubdivsion" target="App.mainController" subdivision=content}}>{{content.name}}</a>
+	{{/collection}}
+{{/view}}
+</div>
+
+<div style="float:left;">
+{{#view displayObserveBinding="App.mainController.currentSubdivision" styleHtml="margin:10px;"}}
+	<h2>{{display.name}}</h2>
+
+	<table style="align:left;">
+		<tr><td><strong>Code:<strong></th><td>{{display.code}}</td></tr>
+		<tr><td><strong>Category:<strong></th><td>{{display.category}}</td></tr>
+		<tr><td><strong>Timezone:<strong></th><td>{{display.timezone_code}}</td></tr>
+	</table>
+{{/view}}
